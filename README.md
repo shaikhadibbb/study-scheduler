@@ -30,6 +30,6 @@ I was drowning in Semester 6. 6 subjects, no time, bad at prioritizing. This fix
 
 ## Why it looks polished
 
-I spent extra time on the UI because I'm applying for UI/UX internships. The backend is the real work (scheduler.py), but I wanted the frontend to show I understand design principles. I used CSS Grid and Flexbox, no frameworks. The dark theme is because I code at night.
+I spent extra time on the UI because I wanted a clean interface to visualize the heuristic weights and feedback loop data. Even though I am applying for AI/ML internships and the backend is the real work (scheduler.py), a clear dashboard makes it much easier to debug and explain how the models adjust. I used CSS Grid and Flexbox, no frameworks. The dark theme is because I code at night.
 
 It's not perfect. It works for me. Your mileage may vary.
