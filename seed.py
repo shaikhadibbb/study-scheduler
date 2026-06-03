@@ -33,7 +33,7 @@ def seed_db():
         print(f"Created user '{default_user.email}' with ID {user_id}")
 
         # 2. Seed current courses
-        print("Seeding Semester 5 courses...")
+        print("Seeding Semester 6 courses...")
         courses_file = os.path.join(os.path.dirname(__file__), "data", "courses.json")
         with open(courses_file, "r") as f:
             courses_data = json.load(f)

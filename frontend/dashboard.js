@@ -62,7 +62,7 @@ async function loadDashboardData() {
     // Personalize greeting
     const formattedName = user.full_name || (user.sub.includes('@') ? user.sub.split('@')[0] : user.sub);
     const capitalizedName = formattedName.charAt(0).toUpperCase() + formattedName.slice(1);
-    welcomeTitle.textContent = `Hey ${capitalizedName}, Semester 5`;
+    welcomeTitle.textContent = `Hey ${capitalizedName}, Semester 6`;
     dashboardDateStr.textContent = getFriendlyDateString(new Date());
     
     try {

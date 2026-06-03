@@ -1,6 +1,6 @@
 # Study Schedule Generator
 
-I built this because my 5th semester has 6 subjects and I was spending 4 hours on Blockchain (easy) and 1 hour on Probability (hard). That was stupid.
+I built this because my 6th semester has 6 subjects and I was spending 4 hours on Blockchain (easy) and 1 hour on Probability (hard). That was stupid.
 
 ## How it works
 
@@ -26,7 +26,7 @@ FastAPI + vanilla JS. No React because I wanted to show I can build without fram
 
 ## Why I Built This
 
-I was drowning in Semester 5. 6 subjects, no time, bad at prioritizing. This fixed my time allocation. My adherence went from 45% to 78% after tuning urgency weights.
+I was drowning in Semester 6. 6 subjects, no time, bad at prioritizing. This fixed my time allocation. My adherence went from 45% to 78% after tuning urgency weights.
 
 ## Why it looks polished
 

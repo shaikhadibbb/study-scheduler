@@ -113,7 +113,7 @@ function renderAuthPage() {
                     <div class="logo" style="justify-content: center; font-size: 2.2rem; margin-bottom: 0.5rem;">
                         StudyOpt
                     </div>
-                    <p class="page-subtitle">Semester 5 study scheduler</p>
+                    <p class="page-subtitle">Semester 6 study scheduler</p>
                 </div>
                 
                 <div class="card" id="login-card">
