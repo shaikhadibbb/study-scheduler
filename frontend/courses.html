@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses Manager | StudyOpt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="ambient-glow"></div>
+    <div class="ambient-glow-2"></div>
+
+    <!-- Navigation Header (Hydrated by app.js) -->
+    <header></header>
+
+    <main id="main-content">
+        <div class="page-title-section">
+            <h1>Course & Academic Profile Manager</h1>
+            <p class="page-subtitle">Configure your active Semester 5 subjects and verify your historical academic logs.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 1.5rem;" id="courses-layout-grid">
+            <!-- Left/Top Section: Course CRUD forms and tables -->
+            <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;" id="active-courses-subgrid">
+                <!-- Add/Edit Active Course Form -->
+                <div class="card">
+                    <h2 class="card-title" id="form-card-title">Add New Course</h2>
+                    <form id="course-crud-form">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                            <div class="form-group">
+                                <label for="course-code">Course Code</label>
+                                <input type="text" id="course-code" class="form-control" placeholder="CS305" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="course-name">Course Name</label>
+                                <input type="text" id="course-name" class="form-control" placeholder="Computational Learning in AI" required>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem;">
+                            <div class="form-group">
+                                <label for="course-credits">Credit Hours</label>
+                                <input type="number" id="course-credits" class="form-control" min="1" max="5" value="3" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="course-difficulty">Difficulty (1 = Easy, 5 = Hard)</label>
+                                <div class="slider-container" style="padding-top: 0.25rem;">
+                                    <input type="range" id="course-difficulty" class="form-control" min="1" max="5" step="1" value="3">
+                                    <span class="slider-val" id="course-diff-val" style="color: var(--accent-secondary);">3/5</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="course-type">Subject Type</label>
+                                <select id="course-type" class="form-control" required>
+                                    <option value="math">Math / Quantitative</option>
+                                    <option value="programming" selected>Programming / Practical</option>
+                                    <option value="theory">Theory / Analytical</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                            <div class="form-group">
+                                <label for="course-exam">Exam Date</label>
+                                <input type="date" id="course-exam" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="course-deadline">Next Assignment Deadline</label>
+                                <input type="date" id="course-deadline" class="form-control">
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem;">
+                            <button type="button" class="btn btn-secondary" id="btn-cancel-edit" style="display: none;">Cancel Edit</button>
+                            <button type="submit" class="btn btn-primary" id="btn-submit-course">Save Course</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Active Course Table -->
+                <div class="card">
+                    <h2 class="card-title">Semester 5 Active Courses</h2>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Course Name</th>
+                                    <th>Credits</th>
+                                    <th>Difficulty</th>
+                                    <th>Type</th>
+                                    <th>Exam Date</th>
+                                    <th>Historical Ratio</th>
+                                    <th style="text-align: right;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="active-courses-tbody">
+                                <tr>
+                                    <td colspan="8" style="text-align: center; color: var(--text-muted);">Fetching courses list...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section: Grades profiles -->
+            <div class="card">
+                <h2 class="card-title">Past Grade Profiles (Semesters 1-4)</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; text-align: center;" id="sem-gpa-summary">
+                    <!-- Summaries injected here -->
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Semester</th>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Credits</th>
+                                <th>Marks</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="past-grades-tbody">
+                            <tr>
+                                <td colspan="6" style="text-align: center; color: var(--text-muted);">Fetching grade transcripts...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <div>
+            StudyOpt &bull; v0.4 &bull; Built for Semester 5 chaos
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="courses.js"></script>
+</body>
+</html>

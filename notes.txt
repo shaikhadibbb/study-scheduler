@@ -1,0 +1,13 @@
+- db locks sometimes when i run seed.py and uvicorn at the same time. 
+  sqlite doesn't like that. fix: don't do that.
+
+- password needs 6 chars minimum. i picked 6 because it felt right.
+  probably should be 8 but i'm lazy.
+
+- requirements.txt is in root AND backend/. the root one is for render.
+  the backend one is for docker. yes this is stupid. no i won't fix it.
+
+- sqlite in docker = data gone on restart. i know. i'll switch to postgres later.
+  maybe. if i feel like it.
+
+- also i need to eat lunch. been coding since 9am.

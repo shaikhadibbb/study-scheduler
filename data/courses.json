@@ -1,0 +1,62 @@
+[
+  {
+    "id": "CS305",
+    "name": "Computational Learning in AI",
+    "credits": 3,
+    "difficulty": 5,
+    "exam_date": "2026-12-15",
+    "assignment_deadline": "2026-11-30",
+    "subject_type": "programming",
+    "historical_avg": 1.0
+  },
+  {
+    "id": "MA302",
+    "name": "Probability & Statistics",
+    "credits": 3,
+    "difficulty": 4,
+    "exam_date": "2026-12-12",
+    "assignment_deadline": "2026-11-28",
+    "subject_type": "math",
+    "historical_avg": 1.0
+  },
+  {
+    "id": "CS307",
+    "name": "Blockchain Technology",
+    "credits": 3,
+    "difficulty": 2,
+    "exam_date": "2026-12-18",
+    "assignment_deadline": "2026-12-05",
+    "subject_type": "theory",
+    "historical_avg": 1.0
+  },
+  {
+    "id": "CS309",
+    "name": "Web Technology",
+    "credits": 3,
+    "difficulty": 3,
+    "exam_date": "2026-12-10",
+    "assignment_deadline": "2026-11-25",
+    "subject_type": "programming",
+    "historical_avg": 1.0
+  },
+  {
+    "id": "CS311",
+    "name": "Software Engineering",
+    "credits": 3,
+    "difficulty": 3,
+    "exam_date": "2026-12-20",
+    "assignment_deadline": "2026-12-01",
+    "subject_type": "theory",
+    "historical_avg": 1.0
+  },
+  {
+    "id": "HU301",
+    "name": "Professional Ethics",
+    "credits": 2,
+    "difficulty": 1,
+    "exam_date": "2026-12-08",
+    "assignment_deadline": "2026-11-20",
+    "subject_type": "theory",
+    "historical_avg": 1.0
+  }
+]

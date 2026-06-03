@@ -1,0 +1,9 @@
+- schedule doesn't refresh after logging. frontend bug probably. 
+  workaround: reload page. fix: idk, maybe use websockets? too hard.
+
+- focus slider is broken on mobile. didn't test because i don't have an android.
+  tested on iphone safari and it works. android users can suffer.
+
+- class schedule conflicts not handled. the scheduler says "study probability at 10am"
+  but i have probability CLASS at 10am. lol. future fix: add class_schedule field.
+  currently too lazy.

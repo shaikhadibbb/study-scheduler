@@ -1,0 +1,25 @@
+[
+  {"course_id": "CS101", "course_name": "Introduction to Programming", "semester": 1, "credits": 3, "marks": 85, "grade": "A"},
+  {"course_id": "MA101", "course_name": "Calculus I", "semester": 1, "credits": 3, "marks": 78, "grade": "B+"},
+  {"course_id": "PH101", "course_name": "Physics", "semester": 1, "credits": 3, "marks": 80, "grade": "B+"},
+  {"course_id": "EE101", "course_name": "Basic Electrical Engineering", "semester": 1, "credits": 3, "marks": 82, "grade": "A-"},
+  {"course_id": "HU101", "course_name": "English", "semester": 1, "credits": 2, "marks": 86, "grade": "A"},
+
+  {"course_id": "CS102", "course_name": "Data Structures", "semester": 2, "credits": 3, "marks": 88, "grade": "A"},
+  {"course_id": "MA102", "course_name": "Calculus II", "semester": 2, "credits": 3, "marks": 82, "grade": "A-"},
+  {"course_id": "CH101", "course_name": "Chemistry", "semester": 2, "credits": 3, "marks": 85, "grade": "A"},
+  {"course_id": "ME101", "course_name": "Engineering Graphics", "semester": 2, "credits": 2, "marks": 80, "grade": "B+"},
+  {"course_id": "CS104", "course_name": "Digital Logic", "semester": 2, "credits": 3, "marks": 88, "grade": "A"},
+
+  {"course_id": "CS201", "course_name": "Discrete Mathematics", "semester": 3, "credits": 3, "marks": 72, "grade": "B-"},
+  {"course_id": "CS203", "course_name": "Object Oriented Programming", "semester": 3, "credits": 3, "marks": 82, "grade": "A-"},
+  {"course_id": "CS205", "course_name": "Computer Organization", "semester": 3, "credits": 3, "marks": 76, "grade": "B"},
+  {"course_id": "CS207", "course_name": "Database Systems", "semester": 3, "credits": 3, "marks": 80, "grade": "B+"},
+  {"course_id": "MA201", "course_name": "Linear Algebra", "semester": 3, "credits": 3, "marks": 80, "grade": "B+"},
+
+  {"course_id": "CS202", "course_name": "Algorithms", "semester": 4, "credits": 3, "marks": 82, "grade": "A-"},
+  {"course_id": "CS204", "course_name": "Operating Systems", "semester": 4, "credits": 3, "marks": 78, "grade": "B+"},
+  {"course_id": "CS206", "course_name": "Theory of Computation", "semester": 4, "credits": 3, "marks": 75, "grade": "B"},
+  {"course_id": "CS208", "course_name": "Computer Networks", "semester": 4, "credits": 3, "marks": 83, "grade": "A-"},
+  {"course_id": "CS210", "course_name": "Software Design", "semester": 4, "credits": 3, "marks": 82, "grade": "A-"}
+]

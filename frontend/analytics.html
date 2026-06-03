@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics & Insights | StudyOpt</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js CDN for clean, hardware-accelerated rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="ambient-glow"></div>
+    <div class="ambient-glow-2"></div>
+
+    <!-- Navigation Header (Hydrated by app.js) -->
+    <header></header>
+
+    <main id="main-content">
+        <div class="page-title-section">
+            <h1>Learning Analytics & Heuristic Insights</h1>
+            <p class="page-subtitle">Verify how the scheduler's weights correspond to your actual grade outputs and focus trends.</p>
+            <p style="font-size:12px; color:#666; margin-top:0.5rem;">*Stats based on demo data. Real tracking starts when you log your first session.</p>
+        </div>
+
+        <!-- AI Insights Board -->
+        <div class="card" style="margin-top: 1.5rem; background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%); border-color: rgba(168, 85, 247, 0.2);">
+            <h2 class="card-title" style="color: var(--accent-secondary);">Feedback Loop Calibration</h2>
+            <div id="ai-insights-container" style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; color: var(--text-primary); font-size: 0.95rem;">
+                <p>loading...</p>
+            </div>
+        </div>
+
+        <!-- Charts Layout Grid (2x2 Grid on desktop) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;" id="analytics-charts-grid">
+            
+            <!-- Chart 1: Predicted vs Actual Hours -->
+            <div class="card">
+                <h2 class="card-title">Prediceted vs Actual Study Hours</h2>
+                <div style="position: relative; height: 300px; width: 100%;">
+                    <canvas id="chart-pred-vs-actual"></canvas>
+                </div>
+            </div>
+
+            <!-- Chart 2: Grade Correlation (Scatter Plot) -->
+            <div class="card">
+                <h2 class="card-title">Study Duration vs Exam Marks Correlation</h2>
+                <div style="position: relative; height: 300px; width: 100%;">
+                    <canvas id="chart-grade-correlation"></canvas>
+                </div>
+            </div>
+
+            <!-- Chart 3: Focus score trend -->
+            <div class="card">
+                <h2 class="card-title">Daily Focus score trend</h2>
+                <div style="position: relative; height: 300px; width: 100%;">
+                    <canvas id="chart-focus-trend"></canvas>
+                </div>
+            </div>
+
+            <!-- Chart 4: Subject type distribution -->
+            <div class="card">
+                <h2 class="card-title">Study Allocation by Subject Type</h2>
+                <div style="position: relative; height: 300px; width: 100%;">
+                    <canvas id="chart-subject-type"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <div>
+            StudyOpt &bull; v0.4 &bull; Built for Semester 5 chaos
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="analytics.js"></script>
+</body>
+</html>
