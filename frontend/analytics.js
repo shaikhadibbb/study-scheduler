@@ -2,16 +2,18 @@
 
 // --- SELECTORS ---
 const aiInsightsContainer = document.getElementById("ai-insights-container");
+const mlAnalysisContainer = document.getElementById("ml-analysis-container");
 
 // --- INITIALIZE & LOAD ---
 async function loadAnalyticsData() {
     try {
-        const [activeCourses, predVsActual, gradeCorrelation, focusTrend, logs] = await Promise.all([
+        const [activeCourses, predVsActual, gradeCorrelation, focusTrend, logs, mlAnalysis] = await Promise.all([
             authFetch("/courses"),
             authFetch("/stats/predicted-vs-actual"),
             authFetch("/stats/grade-correlation"),
             authFetch("/stats/focus-trend"),
-            authFetch("/logs")
+            authFetch("/logs"),
+            authFetch("/stats/ml-analysis")
         ]);
         
         renderAIInsights(activeCourses);
@@ -19,6 +21,7 @@ async function loadAnalyticsData() {
         renderGradeCorrelationChart(gradeCorrelation);
         renderFocusTrendChart(focusTrend);
         renderSubjectTypeDistribution(logs);
+        renderMLAnalysis(mlAnalysis);
         
     } catch (err) {
         showNotification(err.message, "danger");
@@ -253,6 +256,41 @@ function renderSubjectTypeDistribution(logs) {
             }
         }
     });
+}
+
+function renderMLAnalysis(ml) {
+    if (!ml) {
+        mlAnalysisContainer.innerHTML = `<p>no data available.</p>`;
+        return;
+    }
+    
+    const coefs = ml.coefficients;
+    
+    mlAnalysisContainer.innerHTML = `
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div>
+                <strong>model status:</strong> exploratory linear regression trained (sample size n = ${ml.n} days).
+            </div>
+            <div style="background-color: rgba(255,255,255,0.03); padding: 0.75rem; border-radius: var(--radius-sm); font-family: monospace; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.05); line-height: 1.4; color: var(--text-primary);">
+                adherence = ${ml.intercept.toFixed(4)} <br>
+                &nbsp;&nbsp;${coefs.sleep_hours >= 0 ? '+' : '-'} ${Math.abs(coefs.sleep_hours).toFixed(4)} &times; sleep_hours <br>
+                &nbsp;&nbsp;${coefs.difficulty >= 0 ? '+' : '-'} ${Math.abs(coefs.difficulty).toFixed(4)} &times; difficulty <br>
+                &nbsp;&nbsp;${coefs.planned_hours >= 0 ? '+' : '-'} ${Math.abs(coefs.planned_hours).toFixed(4)} &times; planned_hours <br>
+                &nbsp;&nbsp;${coefs.is_weekend >= 0 ? '+' : '-'} ${Math.abs(coefs.is_weekend).toFixed(4)} &times; is_weekend
+            </div>
+            <div>
+                <strong>coefficient breakdown:</strong>
+                <ul style="margin: 0.25rem 0 0 1.25rem; padding: 0; line-height: 1.4; font-size: 0.85rem; color: var(--text-secondary);">
+                    <li><strong>sleep_hours (${coefs.sleep_hours.toFixed(4)}):</strong> extra sleep correlates with increased adherence rate (positive coefficient).</li>
+                    <li><strong>difficulty (${coefs.difficulty.toFixed(4)}):</strong> higher subject difficulty correlates with lower adherence rate (negative coefficient).</li>
+                    <li><strong>planned_hours (${coefs.planned_hours.toFixed(4)}):</strong> overly long planned sessions reduce completion rate.</li>
+                </ul>
+            </div>
+            <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(245, 158, 11, 0.08); border-left: 3px solid #f59e0b; font-size: 0.8rem; line-height: 1.3; color: #f59e0b; border-radius: var(--radius-xs);">
+                <strong>exploratory disclaimer:</strong> r&sup2; score is <strong>${ml.r2.toFixed(4)}</strong> (low fit / high variance). fit shows standard underfitting for human study behavior. n=42 sessions is too small for predictive deployment, but highlights behavioral correlations.
+            </div>
+        </div>
+    `;
 }
 
 // Initial load

@@ -388,6 +388,18 @@ def get_grade_correlation(db: Session = Depends(dependencies.get_db), current_us
         })
     return results
 
+from .ml_analysis import run_regression_analysis
+
+@router.get("/stats/ml-analysis", response_model=schemas.MLAnalysisResponse)
+def get_ml_analysis(db: Session = Depends(dependencies.get_db), current_user: models.User = Depends(dependencies.get_current_user)):
+    result = run_regression_analysis()
+    if not result:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No study logs found to perform regression analysis."
+        )
+    return result
+
 # idk why this is here, delete later
 @router.get("/ping")
 def ping():

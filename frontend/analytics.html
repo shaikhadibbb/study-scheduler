@@ -22,11 +22,22 @@
             <p style="font-size:12px; color:#666; margin-top:0.5rem;">*Stats based on demo data. Real tracking starts when you log your first session.</p>
         </div>
 
-        <!-- AI Insights Board -->
-        <div class="card" style="margin-top: 1.5rem; background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%); border-color: rgba(168, 85, 247, 0.2);">
-            <h2 class="card-title" style="color: var(--accent-secondary);">Feedback Loop Calibration</h2>
-            <div id="ai-insights-container" style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; color: var(--text-primary); font-size: 0.95rem;">
-                <p>loading...</p>
+        <!-- AI Insights & ML Models Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+            <!-- Card A: Feedback Loop Calibration -->
+            <div class="card" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%); border-color: rgba(168, 85, 247, 0.2); margin-top: 0;">
+                <h2 class="card-title" style="color: var(--accent-secondary);">Feedback Loop Calibration (Exponential Smoothing)</h2>
+                <div id="ai-insights-container" style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; color: var(--text-primary); font-size: 0.95rem;">
+                    <p>loading...</p>
+                </div>
+            </div>
+
+            <!-- Card B: Exploratory ML Adherence Analysis -->
+            <div class="card" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%); border-color: rgba(6, 182, 212, 0.2); margin-top: 0;">
+                <h2 class="card-title" style="color: var(--accent-primary);">Exploratory Linear Regression (Adherence Predictor)</h2>
+                <div id="ml-analysis-container" style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; color: var(--text-primary); font-size: 0.9rem;">
+                    <p>loading ML model parameters...</p>
+                </div>
             </div>
         </div>
 
@@ -62,6 +73,22 @@
                 <h2 class="card-title">Study Allocation by Subject Type</h2>
                 <div style="position: relative; height: 300px; width: 100%;">
                     <canvas id="chart-subject-type"></canvas>
+                </div>
+            </div>
+
+            <!-- Plot 1: Parameter Sweep -->
+            <div class="card">
+                <h2 class="card-title">Urgency Weight Floor Sweep (Sensitivity Sweep, n=1)</h2>
+                <div style="text-align: center; padding: 0.5rem;">
+                    <img src="plots/parameter_sweep.png" alt="Parameter Sweep" style="max-width: 100%; height: 280px; object-fit: contain; border-radius: var(--radius-sm);">
+                </div>
+            </div>
+
+            <!-- Plot 2: Model Fit -->
+            <div class="card">
+                <h2 class="card-title">Exploratory Regression Fit (Predicted vs Actual)</h2>
+                <div style="text-align: center; padding: 0.5rem;">
+                    <img src="plots/predicted_vs_actual.png" alt="Model Fit" style="max-width: 100%; height: 280px; object-fit: contain; border-radius: var(--radius-sm);">
                 </div>
             </div>
 

@@ -72,6 +72,8 @@ class StudyLog(Base):
     focus_score = Column(Integer)
     completed = Column(Boolean, default=False)
     notes = Column(String)
+    sleep_hours = Column(Float, nullable=True)
+    study_time_of_day = Column(String, nullable=True) # "morning", "afternoon", "evening"
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
     __table_args__ = (

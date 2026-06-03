@@ -141,9 +141,9 @@ def generate_weekly_schedule(db: Session, user_id: int, start_date: datetime.dat
 
 def update_model(course_id: str, user_id: int, planned_hours: float, actual_hours: float, db: Session) -> float:
     """
-    Model 3: Feedback Loop (The "Adaptive" Part)
+    Model 3: Feedback Loop (Heuristic Adjustment)
     Logs a study session and recalculates historical_avg for a course
-    based on a weighted average of past study sessions' actual/planned ratios.
+    using exponential smoothing with decay factor alpha=0.3.
     """
     ratio = actual_hours / planned_hours if planned_hours > 0 else 1.0
     
@@ -159,8 +159,9 @@ def update_model(course_id: str, user_id: int, planned_hours: float, actual_hour
         ratios = [l.actual_hours / l.planned_hours for l in logs]
         # Include the current session ratio again as the latest feedback
         avg_ratio = sum(ratios) / len(ratios)
-        # Weighted average: 70% historical, 30% recent
-        # Chose this because one bad session shouldn't ruin the prediction
+        # Exponential smoothing: gives 70% weight to historical average (1 - alpha = 0.7),
+        # and 30% weight to the newest observation (alpha = 0.3).
+        # Chose this because one bad session shouldn't ruin the prediction.
         new_factor = (avg_ratio * 0.7) + (ratio * 0.3)
     else:
         new_factor = ratio

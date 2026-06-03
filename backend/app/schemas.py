@@ -89,6 +89,8 @@ class StudyLogCreate(BaseModel):
     focus_score: int = Field(..., ge=1, le=10)
     completed: bool = False
     notes: Optional[str] = None
+    sleep_hours: Optional[float] = None
+    study_time_of_day: Optional[str] = None
 
 class StudyLogResponse(BaseModel):
     id: int
@@ -99,6 +101,8 @@ class StudyLogResponse(BaseModel):
     focus_score: int
     completed: bool
     notes: Optional[str] = None
+    sleep_hours: Optional[float] = None
+    study_time_of_day: Optional[str] = None
     created_at: datetime
 
     class Config:
@@ -147,3 +151,15 @@ class GradeCorrelationItem(BaseModel):
     course_id: str
     study_hours: float
     marks: int
+
+class MLAnalysisCoefficients(BaseModel):
+    sleep_hours: float
+    difficulty: float
+    planned_hours: float
+    is_weekend: float
+
+class MLAnalysisResponse(BaseModel):
+    n: int
+    r2: float
+    intercept: float
+    coefficients: MLAnalysisCoefficients
